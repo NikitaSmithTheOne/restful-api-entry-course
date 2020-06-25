@@ -19,6 +19,16 @@
           <div class="car_block__img">
             <img src="<%= car.imageUrl %>">
           </div>
+          <div class="car_block__tools">
+            <div class="car_block__tools_edit">
+              <a href="/cars/<%= car.id %>/edit">Edit</a>
+            </div>
+            <div class="car_block__tools_delete">
+              <form  method="POST" action="/cars/<%= car.id %>/?_method=DELETE">
+                <input type="submit" value="Delete">
+              </form>
+            </div>
+          </div>
           <div class="car_block__description">
             <p class="car_block__description_text"><%= car.description %></p>
           </div>

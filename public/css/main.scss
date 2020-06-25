@@ -4,8 +4,9 @@
     main.page {
         display: flex;
         flex-direction: column;
+        justify-content: center;
+        align-items: center;
         width: 70%;
-        border: 1px solid black;
         margin: 30px auto;
     }
 
@@ -18,29 +19,61 @@
     div.car_block {
         display: flex;
         flex-direction: column;
-        box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-        transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+        width: 100%;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+        transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
         margin-bottom: 50px;
 
         &:hover {
-            box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+            box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),
+                0 10px 10px rgba(0, 0, 0, 0.22);
         }
 
         div.car_block__name {
-           a {
-            text-decoration: none;
-            color: black;
+            a {
+                text-decoration: none;
+                color: black;
 
-            h2 {
-                padding: 0 50px;
+                h2 {
+                    padding: 0 50px;
+                }
             }
-           } 
         }
-        
-        
+
         div.car_block__img {
             img {
                 width: 100%;
+            }
+        }
+
+        div.car_block__tools {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-end;
+            padding: 10px 30px;
+
+            div.car_block__tools_edit {
+                margin-right: 15px;
+                a {
+                    display: block;
+                    padding: 7px 12px;
+                    border-radius: 5px;
+                    background-color: orange;
+                    color: white;
+                    cursor: pointer;
+                    text-decoration: none;
+                }
+            }
+
+            div.car_block__tools_delete {
+                form > input {
+                    padding: 7px 12px;
+                    border-radius: 5px;
+                    background-color: red;
+                    color: white;
+                    cursor: pointer;
+                    text-decoration: none;
+                }
             }
         }
 
@@ -50,5 +83,33 @@
             }
         }
     }
-}
 
+    div.car_form {
+        width: 500px;
+        box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+        
+        form {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+
+            input[type='text'] {
+                height: 25px;
+                width: 350px;
+                margin-top: 20px;
+            }
+
+            input[type='submit'] {
+                width: 200px;
+                margin: 20px 0px;
+                padding: 7px 12px;
+                border-radius: 5px;
+                background-color: green;
+                color: white;
+                cursor: pointer;
+            }
+        }
+    }
+}
