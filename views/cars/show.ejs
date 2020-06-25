@@ -6,6 +6,10 @@
 
     <main class="page">
         
+        <% if(car) { %>
+              <li><%= car.name %> - <%= car.imageUrl %> - <%= car.description %></li>
+        <% } %>
+
     </main>
   </div>
   <%- include('../partials/footer.ejs') %>

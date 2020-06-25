@@ -5,7 +5,26 @@
     <%- include('../partials/header.ejs') %>
 
     <main class="page">
- 
+      <div class="new_car_button">
+        <a class="new_car_button__link" href="/cars/new">Create a new car</a>
+      </div>
+      
+      <% cars.forEach(function(car) { %>
+        <div class="car_block">
+          <div class="car_block__name">
+            <a href='/cars/<%= car.id %>'>
+              <h2><%= car.name %></h2>
+            </a>
+          </div>
+          <div class="car_block__img">
+            <img src="<%= car.imageUrl %>">
+          </div>
+          <div class="car_block__description">
+            <p class="car_block__description_text"><%= car.description %></p>
+          </div>
+        </div>
+      <% }); %>
+
     </main>
   </div>
   <%- include('../partials/footer.ejs') %>

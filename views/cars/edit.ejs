@@ -1,0 +1,22 @@
+<%- include('../partials/base.ejs') %>
+
+<div id="main-content">
+  <div class="content">
+    <%- include('../partials/header.ejs') %>
+
+    <main class="page">
+
+        <% if(car) { %>
+            <form  method="POST" action="/cars/<%= car.id %>/?_method=PUT">
+                <input type="text" placeholder='Назание' name="name" value="<%= car.name %>" required>
+                <input type="text" placeholder='Ссылка на изображение' name="imageUrl" value="<%= car.imageUrl %>" required>
+                <input type="text" placeholder='Описание' name="description" value="<%= car.description %>" required>
+                <input type="submit" value="Создать">
+            </form>
+        <% } %>
+ 
+    </main>
+  </div>
+  <%- include('../partials/footer.ejs') %>
+</div>
+</div>

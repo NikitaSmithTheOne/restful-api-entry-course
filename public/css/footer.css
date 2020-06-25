@@ -36,10 +36,6 @@ div.content {
           flex: 1 0 auto;
 }
 
-div.content main.page {
-  margin: 30px 0px 30px 0px;
-}
-
 .footer {
   -ms-flex-negative: 0;
       flex-shrink: 0;

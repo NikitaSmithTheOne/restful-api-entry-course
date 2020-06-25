@@ -18,7 +18,9 @@ router.get('/cars', (req, res) => {
         .then((getData) => {
             if (+process.env.USE_HTML_OUTPUT === 1) {
                 // TODO: SPECIFY
-                res.status(HttpStatus.OK).render('cars/index')
+                res.status(HttpStatus.OK).render('cars/index', {
+                    cars: getData,
+                })
             } else {
                 res.status(HttpStatus.OK).json({
                     success: true,
@@ -93,7 +95,9 @@ router.get('/cars/:id', (req, res) => {
         .findById(id)
         .then((findResponse) => {
             if (+process.env.USE_HTML_OUTPUT === 1) {
-                res.status(HttpStatus.OK).render('cars/show')
+                res.status(HttpStatus.OK).render('cars/show', {
+                    car: findResponse,
+                })
             } else {
                 res.status(HttpStatus.OK).json({
                     success: true,
@@ -122,7 +126,7 @@ router.get('/cars/:id/edit', (req, res) => {
 
             if (+process.env.USE_HTML_OUTPUT === 1) {
                 // TODO: SPECIFY
-                res.status(HttpStatus.OK).render('cars/edit')
+                res.status(HttpStatus.OK).render('cars/edit', { car: findData })
             } else {
                 res.status(HttpStatus.OK).json({
                     success: true,
@@ -155,7 +159,7 @@ router.put('/cars/:id', (req, res) => {
         .then((updateData) => {
             if (+process.env.USE_HTML_OUTPUT === 1) {
                 // redirect to a modified car
-                res.status(HttpStatus.OK).render(`cars/${id}`)
+                res.status(HttpStatus.OK).redirect(`/cars/${id}`)
             } else {
                 // just return data
                 res.status(HttpStatus.OK).json({
